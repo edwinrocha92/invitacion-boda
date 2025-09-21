@@ -36,8 +36,9 @@ body {
 /* Hero Section */
 .hero {
   min-height: 100vh;
-  background-image: url('./assets/1.jpeg');
-  background-size: cover;
+  /* ❌ eliminar estas dos líneas */
+  /* background-image: url('./assets/1.jpeg'); */
+  /* background-size: cover; */
   background-position: center;
   position: relative;
   display: flex;
