@@ -33,15 +33,61 @@
   </nav>
 
   <!-- Hero -->
-<div class="hero"
-  style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('./assets/1.jpeg') center/cover no-repeat;">
+<div class="hero" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('./assets/.jpeg') center/cover no-repeat;">
   <div class="hero-content">
-    <h1>Carlos & Issela</h1>
-    <p>Estamos felices de invitarte a nuestra ceremonia de boda</p>
-    <div id="countdown" class="countdown">Faltan 91 días</div>
-    <a href="#rsvp" class="btn btn-gold">✨ Confirmar Asistencia ✨</a>
+    <h1 style="color:black !important">Carlos & Issela</h1>
+    <h3 style="color: black">Estamos felices de invitarte a nuestra ceremonia de boda</h3>
+<div class="countdown-container">
+  <p class="countdown-title">Faltan para nuestro gran día 💕</p>
+  <div class="countdown" id="countdown">
+    <div class="countdown-item">
+      <span id="days">00</span>
+      <small>Días</small>
+    </div>
+    <div class="countdown-item">
+      <span id="hours">00</span>
+      <small>Horas</small>
+    </div>
+    <div class="countdown-item">
+      <span id="minutes">00</span>
+      <small>Minutos</small>
+    </div>
+    <div class="countdown-item">
+      <span id="seconds">00</span>
+      <small>Segundos</small>
+    </div>
   </div>
 </div>
+  </div>
+</div>
+<!-- Confirmación / RSVP -->
+<section id="rsvp">
+  <h2>Confirmar Asistencia</h2>
+  <div class="section-box" id="rsvp-card">
+    <p class="text-center mb-3">Por favor selecciona tu nombre de la lista y confirma tu asistencia</p>
+
+<!-- Selección de Familia -->
+<div class="mb-3">
+  <label for="familySelect" class="form-label"><strong>Soy invitado de:</strong></label>
+  <select id="familySelect" class="form-select">
+    <option value="">-- Selecciona familia --</option>
+    <option value="issela">Sra. Issela Rocha</option>
+    <option value="carlos">Sr. Carlos Avitia</option>
+  </select>
+</div>
+    <!-- Dropdown de invitados -->
+    <div class="mb-3" id="guestDiv" style="display:none;">
+      <label for="guestName" class="form-label"><strong>Selecciona tu nombre:</strong></label>
+      <select id="guestName" class="form-select">
+        <option value="">-- Selecciona --</option>
+      </select>
+    </div>
+    <!-- Botón Confirmar -->
+    <div class="text-center">
+      <button class="btn btn-gold" onclick="confirmAttendance()">✨ Confirmar Asistencia ✨</button>
+    </div>
+  </div>
+</section>
 
   <!-- Separador -->
   <div class="gold-separator"></div>
@@ -81,8 +127,8 @@
   <!-- Confirmación / Dress Code -->
   <section id="rsvp">
     <h2>Dress Code</h2>
-    <div class="section-box" id="dress-card">
-      <div class="dress-code-items">
+    <div class="section-box-2" id="dress-card" style="background: url('./assets/dresscode.jpg') center/cover no-repeat;">
+      <div class="dress-code-items ">
         <p><strong>Vestimenta:</strong> Formal / Casual</p>
       </div>
     </div>
