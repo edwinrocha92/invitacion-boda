@@ -25,8 +25,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#details">Detalles</a></li>
-          <li class="nav-item"><a class="nav-link" href="#rsvp">Confirmación</a></li>
+          <li class="nav-item"><a class="nav-link" href="#dresscode">Dress Code</a></li>
           <li class="nav-item"><a class="nav-link" href="#location">Ubicación</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gifts">Regalos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#rsvp">Confirmación</a></li>
         </ul>
       </div>
     </div>
@@ -36,8 +38,8 @@
   <!-- Hero -->
 <div class="hero" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('./assets/4.jpeg') center/cover no-repeat;">
   <div class="hero-content">
-    <h1 style="color:black !important">Issela & Carlos</h1>
-    <h3 style="color: black">Estamos felices de invitarte a nuestra ceremonia de boda</h3>
+    <h1 style="color:black !important; ">Issela & Carlos</h1>
+    <h3 style="color: black;">Estamos felices de invitarte a nuestra ceremonia de boda</h3>
 <div class="countdown-container">
   <p class="countdown-title">Faltan para nuestro gran día ♥</p>
   <div class="countdown" id="countdown">
@@ -96,20 +98,18 @@
   <!-- Separador -->
   <div class="gold-separator"></div>
 
+
 <!-- Confirmación / Dress Code -->
-<!-- Confirmación / Dress Code -->
-<section id="rsvp">
+<section id="dresscode">
   <h2>Dress Code</h2>
   <div class="section-box-2 text-center" id="dress-card">
     <div class="row align-items-center">
-
       <!-- Damas -->
       <div class="col-6 mb-4">
         <img src="./assets/vestido.png" alt="Vestido" width="120" class="img-fluid mb-3">
         <p style="color:#d4af37; font-weight:bold; font-size:1.4rem;">Damas</p>
         <p style="color:#1c1c1c;">Vestido de cóctel o conjunto semiformal</p>
       </div>
-
       <!-- Caballeros -->
       <div class="col-6 mb-4">
         <img src="./assets/traje.png" alt="Traje" width="120" class="img-fluid mb-3">
@@ -141,12 +141,50 @@
   <!-- Separador -->
   <div class="gold-separator"></div>
 
+    <!-- Separador -->
+    <div class="gold-separator"></div>
+    
+<!-- Regalos -->
+<section id="gifts">
+  <h2>Detalles de Regalo</h2>
+  <div class="section-box" id="gift-card">
+
+    <div class="instructions mb-4 text-center">
+      <p class="mb-3">El mejor regalo es compartir este día tan especial con nosotros. ❤️</p>
+      <p class="mb-3">
+        Sin embargo, si desean acompañarnos con un presente, hemos preparado dos opciones sencillas:
+      </p>
+      <ul class="list-unstyled">
+        <li>📱 Podrán encontrar un código QR en la recepción para realizar un obsequio en efectivo de manera digital.
+        </li>
+        <li>✉️ También tendremos sobres disponibles el día del evento para quienes prefieran entregarlo personalmente.
+        </li>
+      </ul>
+      <p class="mt-3"><em>¡Gracias por su cariño y generosidad en este momento tan importante de nuestras vidas!</em>
+      </p>
+    </div>
+</section>
+    
+    
+    <!-- Separador -->
+    <div class="gold-separator"></div>
+
   <!-- Confirmación / RSVP -->
   <section id="rsvp">
     <h2>Confirmar Asistencia</h2>
     <div class="section-box" id="rsvp-card">
       <p class="text-center mb-3">Por favor selecciona tu nombre de la lista y confirma tu asistencia</p>
-  
+      <!-- Instrucciones -->
+      <div class="instructions mb-4">
+        <p><strong>Instrucciones:</strong></p>
+        <ol>
+          <li>Primero selecciona de qué familia provienes en la lista desplegable.</li>
+          <li>Una vez seleccionada la familia, aparecerá un listado con los nombres de los invitados asociados.</li>
+          <li>Selecciona tu nombre en la lista.</li>
+          <li>Haz clic en <em>✨ Confirmar Asistencia ✨</em> para registrar tu confirmación.</li>
+          <li>Te redireccionara a whatsapp, y solo tendras que dar click en enviar.</li>
+        </ol>
+      </div>
       <!-- Selección de Familia -->
       <div class="mb-3">
         <label for="familySelect" class="form-label"><strong>Soy invitado de:</strong></label>
