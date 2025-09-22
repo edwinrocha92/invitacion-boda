@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invitación de Boda - Carlos & Issela</title>
+  <title>Invitación de Boda - Issela & Carlos</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Google Fonts -->
@@ -17,7 +17,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg bg-white shadow-sm">
     <div class="container">
-      <a class="navbar-brand" href="#">Carlos & Issela</a>
+      <a class="navbar-brand" href="#">Issela & Carlos</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -31,11 +31,12 @@
       </div>
     </div>
   </nav>
-
+  <!-- Separador -->
+  <div class="gold-separator"></div>
   <!-- Hero -->
-<div class="hero" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('./assets/1.jpeg') center/cover no-repeat;">
+<div class="hero" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('./assets/3.jpeg') center/cover no-repeat;">
   <div class="hero-content">
-    <h1 style="color:black !important">Carlos & Issela</h1>
+    <h1 style="color:black !important">Issela & Carlos</h1>
     <h3 style="color: black">Estamos felices de invitarte a nuestra ceremonia de boda</h3>
 <div class="countdown-container">
   <p class="countdown-title">Faltan para nuestro gran día 💕</p>
@@ -60,35 +61,6 @@
 </div>
   </div>
 </div>
-<!-- Confirmación / RSVP -->
-<section id="rsvp">
-  <h2>Confirmar Asistencia</h2>
-  <div class="section-box" id="rsvp-card">
-    <p class="text-center mb-3">Por favor selecciona tu nombre de la lista y confirma tu asistencia</p>
-
-<!-- Selección de Familia -->
-<div class="mb-3">
-  <label for="familySelect" class="form-label"><strong>Soy invitado de:</strong></label>
-  <select id="familySelect" class="form-select">
-    <option value="">-- Selecciona familia --</option>
-    <option value="issela">Sra. Issela Rocha</option>
-    <option value="carlos">Sr. Carlos Avitia</option>
-  </select>
-</div>
-    <!-- Dropdown de invitados -->
-    <div class="mb-3" id="guestDiv" style="display:none;">
-      <label for="guestName" class="form-label"><strong>Selecciona tu nombre:</strong></label>
-      <select id="guestName" class="form-select">
-        <option value="">-- Selecciona --</option>
-      </select>
-    </div>
-    <!-- Botón Confirmar -->
-    <div class="text-center">
-      <button class="btn btn-gold" onclick="confirmAttendance()">✨ Confirmar Asistencia ✨</button>
-    </div>
-  </div>
-</section>
-
   <!-- Separador -->
   <div class="gold-separator"></div>
 
@@ -164,6 +136,42 @@
       <h6 class="text-center"><a href="https://maps.app.goo.gl/HFVX5FiyXJ6jmapB6">Ver en Google Maps</a></h6>
     </div>
   </section>
+
+
+  <!-- Separador -->
+  <div class="gold-separator"></div>
+
+  <!-- Confirmación / RSVP -->
+  <section id="rsvp">
+    <h2>Confirmar Asistencia</h2>
+    <div class="section-box" id="rsvp-card">
+      <p class="text-center mb-3">Por favor selecciona tu nombre de la lista y confirma tu asistencia</p>
+  
+      <!-- Selección de Familia -->
+      <div class="mb-3">
+        <label for="familySelect" class="form-label"><strong>Soy invitado de:</strong></label>
+        <select id="familySelect" class="form-select">
+          <option value="">-- Selecciona familia --</option>
+          <option value="issela">Sra. Issela Rocha</option>
+          <option value="carlos">Sr. Carlos Avitia</option>
+        </select>
+      </div>
+      <!-- Dropdown de invitados -->
+      <div class="mb-3" id="guestDiv" style="display:none;">
+        <label for="guestName" class="form-label"><strong>Selecciona tu nombre:</strong></label>
+        <select id="guestName" class="form-select">
+          <option value="">-- Selecciona --</option>
+        </select>
+      </div>
+      <!-- Botón Confirmar -->
+      <div class="text-center">
+        <button class="btn btn-gold" onclick="confirmAttendance()">✨ Confirmar Asistencia ✨</button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Separador -->
+  <div class="gold-separator"></div>
 
   <!-- Footer -->
   <footer>
