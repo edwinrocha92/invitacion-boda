@@ -91,25 +91,33 @@ familySelect.addEventListener('change', () => {
   }
 });
 
-  // Al cambiar subfamilia
-  subfamilySelect.addEventListener('change', () => {
-    const family = familySelect.value;
-    const sub = subfamilySelect.value;
-    ticketSelect.innerHTML = '<option value="">-- Selecciona --</option>';
+subfamilySelect.addEventListener('change', () => {
+  const family = familySelect.value;
+  const sub = subfamilySelect.value;
+  ticketSelect.innerHTML = '<option value="">-- Selecciona --</option>';
+  const messageDiv = document.getElementById('ticketsMessage');
 
-    if(sub) {
-      const maxTickets = families[family][sub];
-      for(let i=1; i<=maxTickets; i++) {
-        const option = document.createElement('option');
-        option.value = i;
-        option.textContent = i;
-        ticketSelect.appendChild(option);
-      }
-      ticketsDiv.style.display = 'block';
-    } else {
-      ticketsDiv.style.display = 'none';
+  if(sub) {
+    const maxTickets = families[family][sub];
+
+    // 🔹 Reemplazar mensaje en vez de insertar nuevos
+    messageDiv.innerHTML = `Solo una persona de <b>${familyNames[sub]}</b> debe confirmar asistencia. 
+      Selecciona cuántas personas de tu familia asistirán (máximo ${maxTickets}).`;
+
+    // Generar opciones de boletos
+    for(let i=1; i<=maxTickets; i++) {
+      const option = document.createElement('option');
+      option.value = i;
+      option.textContent = i;
+      ticketSelect.appendChild(option);
     }
-  });
+    ticketsDiv.style.display = 'block';
+  } else {
+    ticketsDiv.style.display = 'none';
+    messageDiv.innerHTML = '';
+  }
+});
+
 
     // Al confirmar asistencia (botón)
     function confirmAttendance() {

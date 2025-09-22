@@ -176,22 +176,24 @@
   <section id="rsvp">
     <h2>Confirmar Asistencia</h2>
     <div class="section-box" id="rsvp-card">
-      <!-- Instrucciones -->
-      <div class="instructions mb-4">
-        <p><strong>Instrucciones:</strong></p>
-        <ol>
-          <li>Primero selecciona de que novio eres invitado en la lista desplegable.</li>
-          <li>Solo 1 miembro de la familia, podrá confirmar asistencia, para evitar duplicidad.</li>
-          <li>Una vez seleccionado el novio, aparecerá una lista desplegable con las familias correspondientes.</li>
-          <li>Selecciona tu familia en la lista.</li>
-          <li>Haz clic en <em>✨ Confirmar Asistencia ✨</em> para registrar tu confirmación.</li>
-          <li>Te redireccionará a whatsapp, y solo tendrás que dar click en enviar.</li>
-          <br>
-          <h6>NOTA:</h6>
-          <span>- Si no ves tu nombre en la lista, por favor contacta a los novios</span><br>
-          <span>- Si alguno de los invitados no puede asistir, por favor infórmanos lo antes posible.</span>
-        </ol>
+    <div class="instructions mb-4">
+      <p><strong>¿Cómo confirmar tu asistencia?</strong></p>
+      <ol>
+        <li>Elige de qué novio eres invitado.</li>
+        <li>Selecciona tu familia en la lista.</li>
+        <li>Indica cuántas personas de tu familia asistirán (máximo permitido).</li>
+        <li>Haz clic en <em>✨ Confirmar Asistencia ✨</em>.</li>
+        <li>Se abrirá WhatsApp, solo da <strong>enviar</strong>.</li>
+      </ol>
+      <div class="alert alert-warning mt-3" style="font-size: 0.9rem;">
+        <strong>Nota:</strong>
+        <ul class="mb-0">
+          <li>Solo <u>un miembro por familia</u> debe confirmar asistencia.</li>
+          <li>Si alguien de tu familia no puede asistir, favor de avisar a los novios.</li>
+          <li>Si no encuentras tu familia en la lista, contacta a los novios.</li>
+        </ul>
       </div>
+    </div>
         <div class="mb-3">
           <label for="familySelect" class="form-label"><strong>Novios:</strong></label>
           <select id="familySelect" class="form-select">
@@ -206,6 +208,8 @@
           <select id="subfamilySelect" class="form-select">
             <option value="">-- Selecciona tu familia --</option>
           </select>
+            <!-- Aquí pondremos el mensaje dinámico -->
+            <div id="ticketsMessage" class="form-text text-muted mt-2"></div>
         </div>
         
         <!-- Selección de boletos -->
