@@ -11,7 +11,6 @@ cards.forEach(card => observer.observe(card));
 
 
 const countdownDate = new Date("2025-12-20T17:00:00").getTime();
-
 function updateCountdown() {
   const now = new Date().getTime();
   const distance = countdownDate - now;
@@ -121,7 +120,13 @@ function confirmAttendance() {
   // Número de WhatsApp al que se enviará (pón tu número aquí con código de país)
   const phoneNumber = "+526181171910"; // ejemplo: +52 618 123 4567
   // Mensaje dinámico
-  const message = `Yo *${guestName}* confirmo mi asistencia a tu evento de boda <3`;
+  const message = `Con mucha alegría, yo *${guestName}* confirmo mi asistencia a su boda el 20 de Diciembre de 2025.\n` +
+                      `\n` +
+                      `- Instrucciones: Dress code Semi-Formal\n` +
+                      `\n` +
+                      `- Importante: No se aceptan niños.\n` +
+                      `\n` +
+                      `¡Nos vemos pronto!`;
   // Construir enlace a WhatsApp
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
