@@ -185,22 +185,29 @@
           <li>Te redireccionara a whatsapp, y solo tendras que dar click en enviar.</li>
         </ol>
       </div>
-      <!-- Selección de Familia -->
-      <div class="mb-3">
-        <label for="familySelect" class="form-label"><strong>Soy invitado de:</strong></label>
-        <select id="familySelect" class="form-select">
-          <option value="">-- Selecciona familia --</option>
-          <option value="issela">Sra. Issela Rocha</option>
-          <option value="carlos">Sr. Carlos Avitia</option>
-        </select>
-      </div>
-      <!-- Dropdown de invitados -->
-      <div class="mb-3" id="guestDiv" style="display:none;">
-        <label for="guestName" class="form-label"><strong>Selecciona tu nombre:</strong></label>
-        <select id="guestName" class="form-select">
-          <option value="">-- Selecciona --</option>
-        </select>
-      </div>
+        <div class="mb-3">
+          <label for="familySelect" class="form-label"><strong>Novios:</strong></label>
+          <select id="familySelect" class="form-select">
+            <option value="">-- Seleccion de quien eres invitado --</option>
+            <option value="Issela">Issela Rocha</option>
+            <option value="Carlos">Carlos Avitia</option>
+          </select>
+        </div>
+        <!-- Selección de Subfamilia -->
+        <div class="mb-3" id="subfamilyDiv" style="display:none;">
+          <label for="subfamilySelect" class="form-label"><strong>Familia:</strong></label>
+          <select id="subfamilySelect" class="form-select">
+            <option value="">-- Selecciona tu familia --</option>
+          </select>
+        </div>
+        
+        <!-- Selección de boletos -->
+        <div class="mb-3" id="ticketsDiv" style="display:none;">
+          <label for="ticketSelect" class="form-label"><strong>Número de boletos a usar:</strong></label>
+          <select id="ticketSelect" class="form-select">
+            <option value="">-- Selecciona --</option>
+          </select>
+        </div>
       <!-- Botón Confirmar -->
       <div class="text-center">
         <button class="btn btn-gold" onclick="confirmAttendance()">✨ Confirmar Asistencia ✨</button>

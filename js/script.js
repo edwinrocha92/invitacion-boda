@@ -30,106 +30,90 @@ function updateCountdown() {
 updateCountdown();
 // Actualizamos cada segundo
 setInterval(updateCountdown, 1000);
-// Listas de invitados por familia
-const guests = {
-  issela: [
-    "Salvador Rocha, Norma Ayala, Alessia y Abel",
-    "Edwin Rocha y Lili Nader",
-    "Abuelita Micaelina y Jesus",
-    "Floridem Guerreo y Omar Zamora",
-    "Damar Franco González",
-    "Graciela Quezada",
-    "Crucita Quezada",
-    "Citlali Gonzales",
-    "Lucy Quezada",
-    "Carlos Rios",
-    "Vianey Quezada",
-    "Alfonso Rosales",
-    "Yazmin Rosales",
-    "Jatziri Rios",
-    "Valeria Rios"
-  ],
-  carlos: [
-    "Juana Hernández Sánchez",
-    "Alfredo Avitia Tinoco",
-    "Miguel Hernández Carrillo",
-    "Luis Ángel Avitia Hernández",
-    "Ana Cristina Avitia Hernández",
-    "Jonathan Perales",
-    "Ana Victoria Perales Avitia",
-    "Gabriela Hernández Sánchez",
-    "Pareja de tía gaby",
-    "Víctor Hernández",
-    "Tía chayo",
-    "Monserrat Hernández",
-    "Cesar Esquivel",
-    "Ericka Hernández",
-    "Luis Angel Hernández",
-    "Tío lalo",
-    "Juan Fco Martínez",
-    "Daniela Resendiz",
-    "Marcos Fco Hernández",
-    "Andrea",
-    "Pedro Salas",
-    "Carlos Mercado",
-    "Gerardo Mercado",
-    "José Ángel Chaidez",
-    "Rosario Cabrales Hernández",
-    "Lauro Hernández Sánchez",
-    "Mónica de la Hoya",
-    "Maritza Silerio",
-    "Sergio Rodríguez"
-  ]
-};
 
-// Referencias a los selectores
-const familySelect = document.getElementById('familySelect');
-const guestSelect = document.getElementById('guestName');
-const guestDiv = document.getElementById('guestDiv');
 
-// Al cambiar la familia
+
+    const families = {
+      Issela: { Familia_Rocha_Quezada: 5, Familia_Gonzalez_Quezada: 2, Familia_Hernandez_Quezada: 3, Familia_Rosales_Quezada: 6, Familia_Rios_Quezada: 4, Familia_Rocha_Nader: 2, Familia_Guerrero_Lopez: 4, Familia_Molina_Franco:2},
+      Carlos: { Familia_Hernández: 0, Familia_Avitia: 0 }
+    };
+
+    // Nombres legibles para mostrar en dropdown y WhatsApp
+    const familyNames = {
+      Familia_Rocha_Quezada: "Familia Rocha Quezada",
+      Familia_Gonzalez_Quezada: "Familia Gonzalez Quezada",
+      Familia_Hernandez_Quezada: "Familia Hernandez Quezada",
+      Familia_Rosales_Quezada: "Familia Rosales Quezada",
+      Familia_Rios_Quezada: "Familia Rios Quezada",
+      Familia_Rocha_Nader: "Familia Rocha Nader",
+      Familia_Guerrero_Lopez: "Familia Guerrero Lopez",
+      Familia_Molina_Franco: "Familia Molina Franco",
+      Familia_Hernández: "Familia Hernández",
+      Familia_Avitia: "Familia Avitia"
+    };
+
+
+  const familySelect = document.getElementById('familySelect');
+  const subfamilySelect = document.getElementById('subfamilySelect');
+  const subfamilyDiv = document.getElementById('subfamilyDiv');
+  const ticketsDiv = document.getElementById('ticketsDiv');
+  const ticketSelect = document.getElementById('ticketSelect');
+
+ // Al cambiar familia principal
 familySelect.addEventListener('change', () => {
   const family = familySelect.value;
-  
-  // Limpiar dropdown de invitados
-  guestSelect.innerHTML = '<option value="">-- Selecciona --</option>';
 
-  if (family && guests[family]) {
-    guests[family].forEach(name => {
+  // Limpiar subfamilia y tickets
+  subfamilySelect.innerHTML = '<option value="">-- Selecciona subfamilia --</option>';
+  ticketSelect.innerHTML = '<option value="">-- Selecciona --</option>';
+  ticketsDiv.style.display = 'none';
+
+  if(family && families[family]) {
+    Object.keys(families[family]).forEach(sub => {
       const option = document.createElement('option');
-      option.value = name;
-      option.textContent = name;
-      guestSelect.appendChild(option);
+      option.value = sub; // valor interno
+      option.textContent = familyNames[sub]; // texto visible legible
+      subfamilySelect.appendChild(option);
     });
-    guestDiv.style.display = 'block';
+    subfamilyDiv.style.display = 'block';
   } else {
-    guestDiv.style.display = 'none';
+    subfamilyDiv.style.display = 'none';
   }
 });
 
+  // Al cambiar subfamilia
+  subfamilySelect.addEventListener('change', () => {
+    const family = familySelect.value;
+    const sub = subfamilySelect.value;
+    ticketSelect.innerHTML = '<option value="">-- Selecciona --</option>';
 
+    if(sub) {
+      const maxTickets = families[family][sub];
+      for(let i=1; i<=maxTickets; i++) {
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = i;
+        ticketSelect.appendChild(option);
+      }
+      ticketsDiv.style.display = 'block';
+    } else {
+      ticketsDiv.style.display = 'none';
+    }
+  });
 
+    // Al confirmar asistencia (botón)
+    function confirmAttendance() {
+      const family = familySelect.value;
+      const sub = subfamilySelect.value;
+      const tickets = ticketSelect.value;
 
-function confirmAttendance() {
-  const guestName = document.getElementById("guestName").value;
-  if (!guestName) {
-    alert("Por favor selecciona tu nombre antes de confirmar.");
-    return;
-  }
+      if(!family) { alert("Selecciona tu familia principal."); return; }
+      if(!sub) { alert("Selecciona tu subfamilia."); return; }
+      if(!tickets) { alert("Selecciona cuántos boletos usarás."); return; }
 
-  // Número de WhatsApp al que se enviará (pón tu número aquí con código de país)
-  const phoneNumber = "+526181171910"; // ejemplo: +52 618 123 4567
-  // Mensaje dinámico
-  const message = `Con mucha alegría, yo *${guestName}* confirmo mi asistencia a su boda el 20 de Diciembre de 2025.\n` +
-                      `\n` +
-                      `- Instrucciones: Dress code Semi-Formal\n` +
-                      `\n` +
-                      `- Importante: No se aceptan niños.\n` +
-                      `\n` +
-                      `¡Nos vemos pronto!`;
-  // Construir enlace a WhatsApp
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      const phoneNumber = "+526181171910";
+      const message = `Con mucha alegría, la *${familyNames[sub]}* de la Novia(o) *${family}* confirma *${tickets} boletos* para su asistencia a la boda el 20 de Diciembre de 2025.\n-Dress code Semi-Formal\n-Importante: No se aceptan niños.\n¡Nos vemos pronto!`;
 
-  // Abrir WhatsApp
-  window.open(whatsappUrl, "_blank");
-}
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, "_blank");
+    }
