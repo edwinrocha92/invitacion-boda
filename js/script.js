@@ -34,7 +34,7 @@ setInterval(updateCountdown, 1000);
 
 
     const families = {
-      Issela: { Familia_Rocha_Quezada: 5, Familia_Gonzalez_Quezada: 2, Familia_Hernandez_Quezada: 3, Familia_Rosales_Quezada: 6, Familia_Rios_Quezada: 4, Familia_Rocha_Nader: 2, Familia_Guerrero_Lopez: 4, Familia_Molina_Franco:2},
+      Issela: { Familia_Rocha_Quezada: 5, Familia_Gonzalez_Quezada: 2, Familia_Hernandez_Quezada: 3, Familia_Rosales_Quezada: 6, Familia_Rios_Quezada: 4, Familia_Rocha_Nader: 2, Familia_Guerrero_Lopez: 4, Familia_Molina_Franco:2, Familia_Hernandez_Melendrez:2, Familia_Crissanto_Hernandez:2, Familia_Gonzalez_Gonzalez:2},
       Carlos: { Familia_Avitia_Hernandez: 5, Familia_Perales_Avitia: 3,Familia_Rodriguez_Hernandez:2,Familia_Herrera_Hernandez:2, Familia_Hernandez_Cabrales:3, Familia_Esquvel_Hernandez:2, Familia_Hernandes_De_La_Hoya:2, Familia_Hernandez_Silecio:2}
     };
 
@@ -46,6 +46,9 @@ setInterval(updateCountdown, 1000);
       Familia_Rosales_Quezada: "Familia Rosales Quezada",
       Familia_Rios_Quezada: "Familia Rios Quezada",
       Familia_Rocha_Nader: "Familia Rocha Nader",
+      Familia_Hernandez_Melendrez: "Familia Hernandez Melendrez",
+      Familia_Crissanto_Hernandez: "Familia Crissanto Hernandez",
+      Familia_Gonzalez_Gonzalez: "Familia Gonzalez Gonzalez",
       Familia_Guerrero_Lopez: "Familia Guerrero Lopez",
       Familia_Molina_Franco: "Familia Molina Franco",
       Familia_Avitia_Hernandez: "Familia Avitia Hernandez",
@@ -56,6 +59,7 @@ setInterval(updateCountdown, 1000);
       Familia_Esquvel_Hernandez: "Familia Esquvel Hernandez",
       Familia_Hernandes_De_La_Hoya: "Familia Hernandes De La Hoya",
       Familia_Hernandez_Silecio: "Familia Hernandez Silecio"
+
     };
 
 
@@ -70,7 +74,7 @@ familySelect.addEventListener('change', () => {
   const family = familySelect.value;
 
   // Limpiar subfamilia y tickets
-  subfamilySelect.innerHTML = '<option value="">-- Selecciona subfamilia --</option>';
+  subfamilySelect.innerHTML = '<option value="">-- Selecciona --</option>';
   ticketSelect.innerHTML = '<option value="">-- Selecciona --</option>';
   ticketsDiv.style.display = 'none';
 
@@ -114,7 +118,7 @@ familySelect.addEventListener('change', () => {
       const tickets = ticketSelect.value;
 
       if(!family) { alert("Selecciona tu familia principal."); return; }
-      if(!sub) { alert("Selecciona tu subfamilia."); return; }
+      if(!sub) { alert("Selecciona tu familia."); return; }
       if(!tickets) { alert("Selecciona cuántos boletos usarás."); return; }
 
       const phoneNumber = "+526188000268";
