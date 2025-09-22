@@ -140,18 +140,15 @@ section p {
   z-index: 1;
 }
 .section-box-2 {
-  background-color: var(--white);
-  padding: 8rem;
+  background: #ffffff;
+  padding: 2.5rem;
   border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  border: 2px solid #d4af37;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   margin: 2rem auto;
-  max-width: 700px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s ease-out;
-  position: relative;
-  z-index: 1;
+  max-width: 800px;
 }
+
 .section-box.active {
   opacity: 1;
   transform: translateY(0);

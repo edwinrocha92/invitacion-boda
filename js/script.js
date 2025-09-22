@@ -53,7 +53,33 @@ const guests = {
   carlos: [
     "Ana López",
     "Jorge Martínez",
-    "Lucía Hernández"
+    "Lucía Hernández",
+    "Juana Hernández Sánchez",
+    "Alfredo Avitia Tinoco",
+    "Miguel Hernández Carrillo",
+    "Luis Ángel Avitia Hernández",
+    "Ana Cristina Avitia Hernández",
+    "Jonathan Perales",
+    "Ana Victoria Perales Avitia",
+    "Gabriela Hernández Sánchez",
+    "Pareja de tía gaby",
+    "Víctor Hernández",
+    "Tía chayo",
+    "Monserrat Hernández",
+    "Cesar Esquivel",
+    "Ericka Hernández",
+    "Mónica",
+    "Luis Hernández",
+    "Maritza",
+    "Tío lalo",
+    "Juan Fco Martínez",
+    "Daniela Resendiz",
+    "Marcos Fco Hernández",
+    "Andrea",
+    "Pedro Salas",
+    "Carlos Mercado",
+    "Gerardo Mercado",
+    "José Ángel Chaidez"
   ]
 };
 
