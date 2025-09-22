@@ -112,7 +112,11 @@ familySelect.addEventListener('change', () => {
       if(!tickets) { alert("Selecciona cuántos boletos usarás."); return; }
 
       const phoneNumber = "+526188000268";
-      const message = `Con mucha alegría, la *${familyNames[sub]}* de la Novia(o) *${family}* confirma *${tickets} boletos* para su asistencia a la boda el 20 de Diciembre de 2025.\n-Dress code Semi-Formal\n-Importante: No se aceptan niños.\n¡Nos vemos pronto!`;
+      const message = `Con mucha alegría, la *${familyNames[sub]}* de la Novia(o) *${family}* confirma *${tickets} boletos* para su asistencia a la boda el 20 de Diciembre de 2025.` + 
+      `\n` + 
+      `\n- Dress Code: Semi-Formal\n- Importante: No se aceptan niños.\n` +
+      `\n` + 
+      `¡Nos vemos pronto!`;
 
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, "_blank");
