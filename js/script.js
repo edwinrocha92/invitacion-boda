@@ -1,5 +1,5 @@
 // Animación cards al hacer scroll
-const cards = document.querySelectorAll('.section-box, .hero-content');
+const cards = document.querySelectorAll('.section-box, .section-box-2, .hero-content');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
