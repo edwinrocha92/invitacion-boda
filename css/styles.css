@@ -296,3 +296,18 @@ footer {
     font-size: 1.2rem;
   }
 }
+#details {
+  background: url('../assets/papel.jpg') no-repeat center center;
+  background-size: cover;       /* La imagen cubre toda la sección */
+  padding: 40px 20px;           /* Espaciado interno */
+  border-radius: 20px;          /* Opcional, si quieres bordes redondeados para la sección */
+  color: #333;                  /* Texto legible sobre la textura */
+}
+
+/* Card dentro de la sección */
+#details-card {
+  background: rgba(255, 255, 255, 0.85); /* Fondo semitransparente para que el texto sea legible */
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
