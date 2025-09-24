@@ -130,12 +130,32 @@ subfamilySelect.addEventListener('change', () => {
       if(!tickets) { alert("Selecciona cuántos boletos usarás."); return; }
 
       const phoneNumber = "+526188000268";
-      const message = `Con mucha alegría, la *${familyNames[sub]}* de la Novia(o) *${family}* confirma *${tickets} personas* para su asistencia a la boda el 20 de Diciembre de 2025.` + 
-      `\n` + 
-      `\n- Dress Code: Semi-Formal\n- Importante: No se aceptan niños.\n` +
-      `\n` + 
-      `¡Nos vemos pronto!`;
+      const message = `*CONFIRMACIÓN DE ASISTENCIA*\n`+
+      `\n`+
+                      `Con mucha alegría, la familia *${familyNames[sub]}* de la Novia(o) *${family}* confirma la asistencia de *${tickets} personas* a la boda el *20 de Diciembre de 2025*.\n`+
+                      `\n`+
+                      `*Dress Code:* Semi-Formal\n`+
+                      `\n`+
+                      `*Importante:* No se aceptan niños.\n`+
+                      `\n`+
+                      `¡Nos vemos pronto!`;
 
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, "_blank");
     }
+
+    // function confirmAttendance() {
+    //   const family = familySelect.value;
+    //   const sub = subfamilySelect.value;
+    //   const tickets = ticketSelect.value;
+
+    //   if(!family) { alert("Selecciona tu familia principal."); return; }
+    //   if(!sub) { alert("Selecciona tu familia."); return; }
+    //   if(!tickets) { alert("Selecciona cuántos boletos usarás."); return; }
+
+    //   // Enlace de wa.link previamente configurado con el mensaje
+    //   const waLink = "https://wa.link/abc123"; // reemplaza con tu código de wa.link
+
+    //   alert("Se abrirá WhatsApp con el mensaje predefinido. Solo confirma enviar."); 
+    //   window.open(waLink, "_blank");
+    // }
