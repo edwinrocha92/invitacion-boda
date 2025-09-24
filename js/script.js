@@ -35,7 +35,7 @@ setInterval(updateCountdown, 1000);
 
     const families = {
       Issela: { Familia_Rocha_Quezada: 5, Familia_Gonzalez_Quezada: 2, Familia_Hernandez_Quezada: 3, Familia_Rosales_Quezada: 6, Familia_Rios_Quezada: 4, Familia_Rocha_Nader: 2, Familia_Guerrero_Lopez: 4, Familia_Molina_Franco:2, Familia_Hernandez_Melendrez:2, Familia_Crissanto_Hernandez:2, Familia_Gonzalez_Gonzalez:2},
-      Carlos: { Familia_Avitia_Hernandez: 5, Familia_Perales_Avitia: 3,Familia_Rodriguez_Hernandez:2,Familia_Herrera_Hernandez:2, Familia_Hernandez_Cabrales:3, Familia_Esquvel_Hernandez:2, Familia_Hernandes_De_La_Hoya:2, Familia_Hernandez_Silecio:2}
+      Carlos: { Familia_Avitia_Hernandez: 5, Familia_Perales_Avitia: 3,Familia_Rodriguez_Hernandez:2,Familia_Herrera_Hernandez:2, Familia_Hernandez_Cabrales:3, Familia_Esquivel_Hernandez:2, Familia_Hernandes_De_La_Hoya:2, Familia_Hernandez_Silecio:2}
     };
 
     // Nombres legibles para mostrar en dropdown y WhatsApp
@@ -56,7 +56,7 @@ setInterval(updateCountdown, 1000);
       Familia_Rodriguez_Hernandez: "Familia Rodriguez Hernandez",
       Familia_Herrera_Hernandez: "Familia Herrera Hernandez",
       Familia_Hernandez_Cabrales: "Familia Hernandez Cabrales",
-      Familia_Esquvel_Hernandez: "Familia Esquvel Hernandez",
+      Familia_Esquivel_Hernandez: "Familia Esquivel Hernandez",
       Familia_Hernandes_De_La_Hoya: "Familia Hernandes De La Hoya",
       Familia_Hernandez_Silecio: "Familia Hernandez Silecio"
 
