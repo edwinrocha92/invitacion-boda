@@ -174,16 +174,24 @@ subfamilySelect.addEventListener('change', () => {
     }
 
 
-  const music = document.getElementById("bg-music");
-  const btn = document.getElementById("playBtn");
+  const music = document.getElementById('bg-music');
+  const START_AT = 20; // segundo inicial
+  music.volume = 0.5;
 
-  btn.addEventListener("click", () => {
-    music.currentTime = 5;   // empieza en el segundo 20
-    music.muted = false;      // asegurar que se escuche
-    music.volume = 0.5;       // ajustar volumen
-    music.play()
-      .then(() => console.log("🎶 Música iniciada"))
-      .catch(err => console.log("Error al reproducir:", err));
+  const playOnScroll = async () => {
+    try {
+      music.currentTime = START_AT;
+      music.muted = false;
+      await music.play();
+      console.log('🎶 Música iniciada desde scroll/touch');
+    } catch (err) {
+      console.log('No se pudo reproducir automáticamente:', err);
+    }
+    // removemos listeners para que solo corra una vez
+    window.removeEventListener('scroll', playOnScroll);
+    window.removeEventListener('touchstart', playOnScroll);
+  };
 
-    btn.style.display = "none"; // ocultar botón después de tocar
-  });
+  // Escuchamos scroll y touchstart
+  window.addEventListener('scroll', playOnScroll, { passive: true });
+  window.addEventListener('touchstart', playOnScroll, { passive: true });
