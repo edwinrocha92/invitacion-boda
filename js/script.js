@@ -35,7 +35,7 @@ setInterval(updateCountdown, 1000);
 
     const families = {
       Issela: { Familia_Rocha_Quezada: 5, Familia_Gonzalez_Quezada: 2, Familia_Hernandez_Quezada: 3, Familia_Rosales_Quezada: 6, Familia_Rios_Quezada: 4, Familia_Rocha_Nader: 2, Familia_Guerrero_Lopez: 4, Familia_Molina_Franco:2, Familia_Hernandez_Melendrez:2, Familia_Crissanto_Hernandez:2, Familia_Gonzalez_Gonzalez:2},
-      Carlos: { Familia_Avitia_Hernandez: 5, Familia_Perales_Avitia: 3,Familia_Rodriguez_Hernandez:2,Familia_Herrera_Hernandez:2, Familia_Hernandez_Cabrales:3, Familia_Esquivel_Hernandez:2, Familia_Hernandez_De_La_Hoya:2, Familia_Hernandez_Silecio:2,Familia_Hernandez_Arambula:5, Fam_Mata_Hernandez:2, Fam_Espinoza_Hernandez:6, Familia_Felix:3}
+      Carlos: { Familia_Avitia_Hernandez: 5, Familia_Perales_Avitia: 3,Familia_Rodriguez_Hernandez:2,Familia_Herrera_Hernandez:2, Familia_Hernandez_Cabrales:3, Familia_Esquivel_Hernandez:2, Familia_Hernandez_De_La_Hoya:2, Familia_Hernandez_Silerio:2,Familia_Hernandez_Arambula:5, Fam_Mata_Hernandez:2, Fam_Espinoza_Hernandez:6, Familia_Felix:3}
     };
 
     // Nombres legibles para mostrar en dropdown y WhatsApp
@@ -60,7 +60,7 @@ setInterval(updateCountdown, 1000);
       Familia_Hernandez_Cabrales: "Familia Hernández Cabrales",
       Familia_Esquivel_Hernandez: "Familia Esquivel Hernández",
       Familia_Hernandez_De_La_Hoya: "Familia Hernández De La Hoya",
-      Familia_Hernandez_Silecio: "Familia Hernández Silecio",
+      Familia_Hernandez_Silerio: "Familia Hernández Silerio",
       Familia_Hernandez_Arambula: "Familia Hernández Arámbula",
       Fam_Mata_Hernandez: "Familia Mata Hernández",
       Fam_Espinoza_Hernandez: "Familia Espinoza Hernández",
@@ -176,24 +176,28 @@ subfamilySelect.addEventListener('change', () => {
 
 
 
-// const overlay = document.getElementById('inviteOverlay');
-// const enterBtn = document.getElementById('enterBtn');
-// const audio = document.getElementById('bg-music');
-// const START_AT = 5;
 
-// enterBtn.addEventListener('click', () => {
-//   // Aplicar clase de fade-out
-//   overlay.classList.add('hide');
+
+const overlay = document.getElementById('inviteOverlay');
+const enterBtn = document.getElementById('enterBtn');
+const audio = document.getElementById('bg-music');
+const START_AT = 5;
+// Bloquear scroll al cargar
+document.body.classList.add("modal-open");
+enterBtn.addEventListener('click', () => {
+        // 🚪 Quita overlay con fade-out
+    overlay.classList.add("hide");
+    document.body.classList.remove("modal-open"); // Reactiva scroll
  
-//   // Reproducir audio desde el segundo 20
-//   if (audio) {
-//     try {
-//       audio.currentTime = START_AT;
-//       audio.play().catch(() => {
-//         console.warn('El audio requiere interacción del usuario.');
-//       });
-//     } catch(e) {
-//       console.warn(e);
-//     }
-//   }
-// });
+  // Reproducir audio desde el segundo 20
+  if (audio) {
+    try {
+      audio.currentTime = START_AT;
+      audio.play().catch(() => {
+        console.warn('El audio requiere interacción del usuario.');
+      });
+    } catch(e) {
+      console.warn(e);
+    }
+  }
+});
