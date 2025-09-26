@@ -187,18 +187,21 @@ const START_AT = 5;
 // Bloquear scroll al cargar
 document.body.classList.add("modal-open");
 enterBtn.addEventListener('click', () => {
-    overlay.classList.add("hide");
-    document.body.classList.remove("modal-open"); // Reactiva scroll
- 
-  // Reproducir audio desde el segundo 20
+  // Quitar overlay y reactivar scroll de inmediato
+  overlay.classList.add("hide");
+  document.body.classList.remove("modal-open");
+
+  // Reproducir música en segundo plano sin bloquear la UI
   if (audio) {
-    try {
-      audio.currentTime = START_AT;
-      audio.play().catch(() => {
-        console.warn('El audio requiere interacción del usuario.');
-      });
-    } catch(e) {
-      console.warn(e);
-    }
+    setTimeout(() => {
+      try {
+        audio.currentTime = START_AT;
+        audio.play().catch(() => {
+          console.warn('El audio requiere interacción del usuario.');
+        });
+      } catch (e) {
+        console.warn(e);
+      }
+    }, 200); // 🔹 delay ligero para que no bloquee el DOM
   }
 });
