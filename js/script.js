@@ -35,30 +35,36 @@ setInterval(updateCountdown, 1000);
 
     const families = {
       Issela: { Familia_Rocha_Quezada: 5, Familia_Gonzalez_Quezada: 2, Familia_Hernandez_Quezada: 3, Familia_Rosales_Quezada: 6, Familia_Rios_Quezada: 4, Familia_Rocha_Nader: 2, Familia_Guerrero_Lopez: 4, Familia_Molina_Franco:2, Familia_Hernandez_Melendrez:2, Familia_Crissanto_Hernandez:2, Familia_Gonzalez_Gonzalez:2},
-      Carlos: { Familia_Avitia_Hernandez: 5, Familia_Perales_Avitia: 3,Familia_Rodriguez_Hernandez:2,Familia_Herrera_Hernandez:2, Familia_Hernandez_Cabrales:3, Familia_Esquivel_Hernandez:2, Familia_Hernandes_De_La_Hoya:2, Familia_Hernandez_Silecio:2}
+      Carlos: { Familia_Avitia_Hernandez: 5, Familia_Perales_Avitia: 3,Familia_Rodriguez_Hernandez:2,Familia_Herrera_Hernandez:2, Familia_Hernandez_Cabrales:3, Familia_Esquivel_Hernandez:2, Familia_Hernandez_De_La_Hoya:2, Familia_Hernandez_Silecio:2,Familia_Hernandez_Arambula:5, Fam_Mata_Hernandez:2, Fam_Espinoza_Hernandez:6, Familia_Felix:3}
     };
 
     // Nombres legibles para mostrar en dropdown y WhatsApp
     const familyNames = {
+      //FAMILIA DE ISSELA
       Familia_Rocha_Quezada: "Familia Rocha Quezada",
-      Familia_Gonzalez_Quezada: "Familia Gonzalez Quezada",
-      Familia_Hernandez_Quezada: "Familia Hernandez Quezada",
+      Familia_Gonzalez_Quezada: "Familia González Quezada",
+      Familia_Hernandez_Quezada: "Familia Hernández Quezada",
       Familia_Rosales_Quezada: "Familia Rosales Quezada",
       Familia_Rios_Quezada: "Familia Rios Quezada",
       Familia_Rocha_Nader: "Familia Rocha Nader",
-      Familia_Hernandez_Melendrez: "Familia Hernandez Melendrez",
-      Familia_Crissanto_Hernandez: "Familia Crissanto Hernandez",
-      Familia_Gonzalez_Gonzalez: "Familia Gonzalez Gonzalez",
-      Familia_Guerrero_Lopez: "Familia Guerrero Lopez",
+      Familia_Hernandez_Melendrez: "Familia Hernández Melendrez",
+      Familia_Crissanto_Hernandez: "Familia Crissanto Hernández",
+      Familia_Gonzalez_Gonzalez: "Familia González González",
+      Familia_Guerrero_Lopez: "Familia Guerrero López",
       Familia_Molina_Franco: "Familia Molina Franco",
-      Familia_Avitia_Hernandez: "Familia Avitia Hernandez",
+      //FAMILIA DE CARLOS
+      Familia_Avitia_Hernandez: "Familia Avitia Hernández",
       Familia_Perales_Avitia: "Familia Perales Avitia",
-      Familia_Rodriguez_Hernandez: "Familia Rodriguez Hernandez",
-      Familia_Herrera_Hernandez: "Familia Herrera Hernandez",
-      Familia_Hernandez_Cabrales: "Familia Hernandez Cabrales",
-      Familia_Esquivel_Hernandez: "Familia Esquivel Hernandez",
-      Familia_Hernandes_De_La_Hoya: "Familia Hernandes De La Hoya",
-      Familia_Hernandez_Silecio: "Familia Hernandez Silecio"
+      Familia_Rodriguez_Hernandez: "Familia Rodríguez Hernández",
+      Familia_Herrera_Hernandez: "Familia Herrera Hernández",
+      Familia_Hernandez_Cabrales: "Familia Hernández Cabrales",
+      Familia_Esquivel_Hernandez: "Familia Esquivel Hernández",
+      Familia_Hernandez_De_La_Hoya: "Familia Hernández De La Hoya",
+      Familia_Hernandez_Silecio: "Familia Hernández Silecio",
+      Familia_Hernandez_Arambula: "Familia Hernández Arámbula",
+      Fam_Mata_Hernandez: "Familia Mata Hernández",
+      Fam_Espinoza_Hernandez: "Familia Espinoza Hernández",
+      Familia_Felix: "Familia Félix"
 
     };
 
@@ -104,6 +110,12 @@ subfamilySelect.addEventListener('change', () => {
     messageDiv.innerHTML = `Solo una persona de <b>${familyNames[sub]}</b> debe confirmar asistencia. 
       Selecciona cuántas personas de tu familia asistirán (máximo ${maxTickets}).`;
 
+        // 🔹 Nueva opción "No asistiré"
+      const noOption = document.createElement('option');
+      noOption.value = "0";
+      noOption.textContent = "No asistiré";
+      ticketSelect.appendChild(noOption);
+
     // Generar opciones de boletos
     for(let i=1; i<=maxTickets; i++) {
       const option = document.createElement('option');
@@ -129,33 +141,34 @@ subfamilySelect.addEventListener('change', () => {
       if(!sub) { alert("Selecciona tu familia."); return; }
       if(!tickets) { alert("Selecciona cuántos boletos usarás."); return; }
 
-      const phoneNumber = "+526188000268";
-      const message = `*CONFIRMACIÓN DE ASISTENCIA*\n`+
-      `\n`+
-                      `Con mucha alegría, la familia *${familyNames[sub]}* de la Novia(o) *${family}* confirma la asistencia de *${tickets} personas* a la boda el *20 de Diciembre de 2025*.\n`+
-                      `\n`+
-                      `*Dress Code:* Semi-Formal\n`+
-                      `\n`+
-                      `*Importante:* No se aceptan niños.\n`+
-                      `\n`+
-                      `¡Nos vemos pronto!`;
+      // Números de teléfono según familia principal
+      let phoneNumber;
+      if (family === "Issela") {
+              phoneNumber = "+526188000268";
+      } else if  (family === "Carlos") {
+              phoneNumber = "+525623341410";
+      }
+
+
+
+      let message = `*MENSAJE NUEVO*\n\n`;
+      if (tickets === "0") {
+
+              message += `Lamentablemente, La *${familyNames[sub]}* invitada por *${family}* no podrá acompañarlos en la celebración de su boda el *20 de Diciembre de 2025*.\n\n` +
+               `Con mucho cariño, les deseamos lo mejor en este día tan especial y una vida llena de amor y felicidad.`;
+
+      } else {
+
+              message +=`Con mucha alegría, La *${familyNames[sub]}* de la Novia(o) *${family}* confirma la asistencia de *${tickets} personas* a la boda el *20 de Diciembre de 2025*.\n`+
+                        `\n`+
+                        `*Dress Code:* Semi-Formal\n`+
+                        `\n`+
+                        `*Importante:* No se aceptan niños.\n`+
+                        `\n`+
+                        `¡Nos vemos pronto!`;
+          }
+
 
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, "_blank");
     }
-
-    // function confirmAttendance() {
-    //   const family = familySelect.value;
-    //   const sub = subfamilySelect.value;
-    //   const tickets = ticketSelect.value;
-
-    //   if(!family) { alert("Selecciona tu familia principal."); return; }
-    //   if(!sub) { alert("Selecciona tu familia."); return; }
-    //   if(!tickets) { alert("Selecciona cuántos boletos usarás."); return; }
-
-    //   // Enlace de wa.link previamente configurado con el mensaje
-    //   const waLink = "https://wa.link/abc123"; // reemplaza con tu código de wa.link
-
-    //   alert("Se abrirá WhatsApp con el mensaje predefinido. Solo confirma enviar."); 
-    //   window.open(waLink, "_blank");
-    // }
