@@ -185,7 +185,6 @@ const START_AT = 5;
 // Bloquear scroll al cargar
 document.body.classList.add("modal-open");
 enterBtn.addEventListener('click', () => {
-        // 🚪 Quita overlay con fade-out
     overlay.classList.add("hide");
     document.body.classList.remove("modal-open"); // Reactiva scroll
  
