@@ -173,25 +173,23 @@ subfamilySelect.addEventListener('change', () => {
       window.open(whatsappUrl, "_blank");
     }
 
+const overlay = document.getElementById('inviteOverlay');
+const enterBtn = document.getElementById('enterBtn');
+const audio = document.getElementById('bg-music');
+const START_AT = 5;
 
-  const music = document.getElementById('bg-music');
-  const START_AT = 20; // segundo inicial
-  music.volume = 0.5;
-
-  const playOnScroll = async () => {
+enterBtn.addEventListener('click', () => {
+  // Aplicar clase de fade-out
+  overlay.classList.add('hide');
+  // Reproducir audio desde el segundo 20
+  if (audio) {
     try {
-      music.currentTime = START_AT;
-      music.muted = false;
-      await music.play();
-      console.log('🎶 Música iniciada desde scroll/touch');
-    } catch (err) {
-      console.log('No se pudo reproducir automáticamente:', err);
+      audio.currentTime = START_AT;
+      audio.play().catch(() => {
+        console.warn('El audio requiere interacción del usuario.');
+      });
+    } catch(e) {
+      console.warn(e);
     }
-    // removemos listeners para que solo corra una vez
-    window.removeEventListener('scroll', playOnScroll);
-    window.removeEventListener('touchstart', playOnScroll);
-  };
-
-  // Escuchamos scroll y touchstart
-  window.addEventListener('scroll', playOnScroll, { passive: true });
-  window.addEventListener('touchstart', playOnScroll, { passive: true });
+  }
+});

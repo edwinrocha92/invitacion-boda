@@ -317,3 +317,64 @@ footer {
   border-radius: 20px;          /* Opcional, si quieres bordes redondeados para la sección */
   color: #333;                  /* Texto legible sobre la textura */
 }
+ 
+
+
+/* Overlay completo */
+#inviteOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.5s ease; /* Fade-out */
+}
+
+#inviteOverlay.hide {
+  opacity: 0;
+  pointer-events: none; /* Desactiva interacciones después del fade */
+}
+
+/* Tarjeta de invitación */
+.invite-card {
+  background-color: #fffef9;
+  border-radius: 20px;
+  max-width: 400px;
+  width: 90%;
+  padding: 2rem;
+  font-family: 'Playfair Display', serif;
+  pointer-events: auto;
+  text-align: center;
+}
+
+/* Botón */
+.btn-warning {
+  background-color: #d4af37;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-warning:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.btn-warning:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .invite-card h1 { font-size: 2rem; }
+  .invite-card p { font-size: 1rem; }
+  .btn-warning { font-size: 1rem; padding: 0.5rem 1.2rem; }
+}

@@ -13,7 +13,19 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+<!-- Audio -->
+<audio id="bg-music" src="./assets/thoseeyes.m4a"></audio>
 
+<!-- Overlay invitación -->
+<div id="inviteOverlay" class="d-flex align-items-center justify-content-center">
+  <div class="invite-card text-center p-4 shadow-lg">
+    <h1 class="display-4">Issela & Carlos</h1>
+    <p class="lead">¡Toca el botón para entrar!</p>
+    <small>20 Dic 2025 · 18:30</small>
+    <br><br>
+    <button id="enterBtn" class="btn btn-warning btn-lg">Abrir Invitación</button>
+  </div>
+</div>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg bg-white shadow-sm">
     <div class="container">
@@ -196,10 +208,6 @@
   </section>
   <!-- Separador -->
   <div class="gold-separator"></div>
-  <audio id="bg-music" loop preload="auto">
-    <source src="./assets/thoseeyes.m4a" type="audio/mp4">
-    Tu navegador no soporta audio HTML5.
-  </audio>
   <!-- Footer -->
   <footer>
     © 2025 Issela & Carlos
