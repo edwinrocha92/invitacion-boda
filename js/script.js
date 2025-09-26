@@ -177,7 +177,7 @@ subfamilySelect.addEventListener('change', () => {
   const music = document.getElementById("bg-music");
 
   // cuando el usuario haga scroll por primera vez
-  window.addEventListener("mousemove", () => {
+  window.addEventListener("click", () => {
     music.currentTime = 7;   // empieza en el segundo 7
     music.muted = false;      // aseguramos que suene
     music.volume = 0.5;       // volumen medio
