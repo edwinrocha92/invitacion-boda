@@ -174,14 +174,21 @@ subfamilySelect.addEventListener('change', () => {
     }
 
 
-  const music = document.getElementById("bg-music");
+    const music = document.getElementById("bg-music");
 
-  // cuando el usuario haga scroll por primera vez
-  window.addEventListener("click", () => {
-    music.currentTime = 7;   // empieza en el segundo 7
-    music.muted = false;      // aseguramos que suene
-    music.volume = 0.5;       // volumen medio
+  // el audio empieza en mute y cargando desde el inicio
+  music.volume = 0.5;
+
+  // en móviles, solo un TAP desbloquea sonido
+  document.body.addEventListener("touchstart", () => {
+    music.currentTime = 6;
+    music.muted = false;
     music.play();
+  }, { once: true });
 
-    // se ejecuta solo una vez
+  // en desktop también lo habilitamos con scroll
+  window.addEventListener("scroll", () => {
+    music.currentTime = 6;
+    music.muted = false;
+    music.play();
   }, { once: true });
