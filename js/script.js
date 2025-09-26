@@ -176,24 +176,24 @@ subfamilySelect.addEventListener('change', () => {
 
 
 
-const overlay = document.getElementById('inviteOverlay');
-const enterBtn = document.getElementById('enterBtn');
-const audio = document.getElementById('bg-music');
-const START_AT = 5;
+// const overlay = document.getElementById('inviteOverlay');
+// const enterBtn = document.getElementById('enterBtn');
+// const audio = document.getElementById('bg-music');
+// const START_AT = 5;
 
-enterBtn.addEventListener('click', () => {
-  // Aplicar clase de fade-out
-  overlay.classList.add('hide');
+// enterBtn.addEventListener('click', () => {
+//   // Aplicar clase de fade-out
+//   overlay.classList.add('hide');
  
-  // Reproducir audio desde el segundo 20
-  if (audio) {
-    try {
-      audio.currentTime = START_AT;
-      audio.play().catch(() => {
-        console.warn('El audio requiere interacción del usuario.');
-      });
-    } catch(e) {
-      console.warn(e);
-    }
-  }
-});
+//   // Reproducir audio desde el segundo 20
+//   if (audio) {
+//     try {
+//       audio.currentTime = START_AT;
+//       audio.play().catch(() => {
+//         console.warn('El audio requiere interacción del usuario.');
+//       });
+//     } catch(e) {
+//       console.warn(e);
+//     }
+//   }
+// });
