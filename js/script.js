@@ -105,27 +105,27 @@ subfamilySelect.addEventListener('change', () => {
   ticketSelect.innerHTML = '<option value="">-- Selecciona --</option>';
   const messageDiv = document.getElementById('ticketsMessage');
 
-  if(sub) {
+  if (sub) {
     const maxTickets = families[family][sub];
 
-    // 🔹 Reemplazar mensaje en vez de insertar nuevos
     messageDiv.innerHTML = `Solo una persona de <b>${familyNames[sub]}</b> debe confirmar asistencia. 
       Selecciona cuántas personas de tu familia asistirán (máximo ${maxTickets}).`;
 
-        // 🔹 Nueva opción "No asistiré"
-      const noOption = document.createElement('option');
-      noOption.value = "0";
-      noOption.textContent = "No asistiré";
-      ticketSelect.appendChild(noOption);
+    const noOption = document.createElement('option');
+    noOption.value = "0";
+    noOption.textContent = "No asistiré";
+    ticketSelect.appendChild(noOption);
 
-    // Generar opciones de boletos
-    for(let i=1; i<=maxTickets; i++) {
+    for (let i = 1; i <= maxTickets; i++) {
       const option = document.createElement('option');
       option.value = i;
       option.textContent = i;
       ticketSelect.appendChild(option);
     }
     ticketsDiv.style.display = 'block';
+
+    // 🔹 Hack: liberar foco en móviles para poder volver a abrir "Novia/Novio"
+    setTimeout(() => familySelect.blur(), 100);
   } else {
     ticketsDiv.style.display = 'none';
     messageDiv.innerHTML = '';
@@ -187,11 +187,11 @@ const START_AT = 5;
 // Bloquear scroll al cargar
 document.body.classList.add("modal-open");
 enterBtn.addEventListener('click', () => {
-  // Quitar overlay y reactivar scroll de inmediato
-  overlay.classList.add("hide");
+  // Eliminar overlay completamente
+  overlay.remove();
   document.body.classList.remove("modal-open");
 
-  // Reproducir música en segundo plano sin bloquear la UI
+  // Reproducir música en segundo plano
   if (audio) {
     setTimeout(() => {
       try {
@@ -202,6 +202,6 @@ enterBtn.addEventListener('click', () => {
       } catch (e) {
         console.warn(e);
       }
-    }, 200); // 🔹 delay ligero para que no bloquee el DOM
+    }, 200);
   }
 });
