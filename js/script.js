@@ -75,13 +75,15 @@ setInterval(updateCountdown, 1000);
   const ticketsDiv = document.getElementById('ticketsDiv');
   const ticketSelect = document.getElementById('ticketSelect');
 
- // Al cambiar familia principal
+// Al cambiar familia principal
 familySelect.addEventListener('change', () => {
   const family = familySelect.value;
 
   // Limpiar subfamilia y tickets
   subfamilySelect.innerHTML = '<option value="">-- Selecciona --</option>';
+  subfamilySelect.value = ""; // 🔹 Reseteamos selección
   ticketSelect.innerHTML = '<option value="">-- Selecciona --</option>';
+  ticketSelect.value = ""; // 🔹 Reseteamos selección
   ticketsDiv.style.display = 'none';
 
   if(family && families[family]) {
