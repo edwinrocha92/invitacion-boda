@@ -173,6 +173,9 @@ subfamilySelect.addEventListener('change', () => {
       window.open(whatsappUrl, "_blank");
     }
 
+
+
+
 const overlay = document.getElementById('inviteOverlay');
 const enterBtn = document.getElementById('enterBtn');
 const audio = document.getElementById('bg-music');
@@ -181,6 +184,7 @@ const START_AT = 5;
 enterBtn.addEventListener('click', () => {
   // Aplicar clase de fade-out
   overlay.classList.add('hide');
+ 
   // Reproducir audio desde el segundo 20
   if (audio) {
     try {

@@ -319,7 +319,12 @@ footer {
 }
  
 
-
+#body-block-scroll {
+  overflow:hidden;
+}
+.block-allow-scroll {
+  overflow:scroll;
+}
 /* Overlay completo */
 #inviteOverlay {
   position: fixed;
@@ -331,6 +336,7 @@ footer {
   justify-content: center;
   opacity: 1;
   transition: opacity 0.5s ease; /* Fade-out */
+  overflow: hidden;
 }
 
 #inviteOverlay.hide {
