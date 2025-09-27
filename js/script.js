@@ -133,48 +133,62 @@ subfamilySelect.addEventListener('change', () => {
 });
 
 
-    // Al confirmar asistencia (botón)
-    function confirmAttendance() {
-      const family = familySelect.value;
-      const sub = subfamilySelect.value;
-      const tickets = ticketSelect.value;
+ let tempData = {}; // Guardará los valores antes de confirmar
 
-      if(!family) { alert("Selecciona tu familia principal."); return; }
-      if(!sub) { alert("Selecciona tu familia."); return; }
-      if(!tickets) { alert("Selecciona cuántos boletos usarás."); return; }
+  function confirmAttendance() {
+    const family = familySelect.value;
+    const sub = subfamilySelect.value;
+    const tickets = ticketSelect.value;
 
-      // Números de teléfono según familia principal
-      let phoneNumber;
-      if (family === "Issela") {
-              phoneNumber = "+526188000268";
-      } else if  (family === "Carlos") {
-              phoneNumber = "+525623341410";
-      }
+    if (!family) { alert("Selecciona tu familia principal."); return; }
+    if (!sub) { alert("Selecciona tu familia."); return; }
+    if (!tickets) { alert("Selecciona cuántos boletos usarás."); return; }
 
+    // Guardamos los datos en memoria temporal
+    tempData = { family, sub, tickets };
 
+    // Inyectamos el mensaje en el modal
+    const confirmMsg = `¿Confirmas que la familia <strong>${familyNames[sub]}</strong> 
+      invitada por <strong>${family}</strong> usará 
+      <strong>${tickets} boletos</strong>?`;
+    document.getElementById("confirmModalBody").innerHTML = confirmMsg;
 
-      let message = `*MENSAJE NUEVO*\n\n`;
-      if (tickets === "0") {
+    // Mostramos el modal
+    const modal = new bootstrap.Modal(document.getElementById("confirmModal"));
+    modal.show();
+  }
 
-              message += `Lamentablemente, La *${familyNames[sub]}* invitada por *${family}* no podrá acompañarlos en la celebración de su boda el *20 de Diciembre de 2025*.\n\n` +
-               `Con mucho cariño, les deseamos lo mejor en este día tan especial y una vida llena de amor y felicidad.`;
+  // Acción al confirmar en el modal
+  document.getElementById("confirmYesBtn").addEventListener("click", function() {
+    const { family, sub, tickets } = tempData;
 
-      } else {
-
-              message +=`Con mucha alegría, La *${familyNames[sub]}* de la Novia(o) *${family}* confirma la asistencia de *${tickets} personas* a la boda el *20 de Diciembre de 2025*.\n`+
-                        `\n`+
-                        `*Dress Code:* Semi-Formal\n`+
-                        `\n`+
-                        `*Importante:* No se aceptan niños.\n`+
-                        `\n`+
-                        `¡Nos vemos pronto!`;
-          }
-
-
-      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, "_blank");
+    // Números de teléfono según familia principal
+    let phoneNumber;
+    if (family === "Issela") {
+      phoneNumber = "+526188000268";
+    } else if (family === "Carlos") {
+      phoneNumber = "+525623341410";
     }
 
+    let message = `*MENSAJE NUEVO*\n\n`;
+    if (tickets === "0") {
+      message += `Lamentablemente, La *${familyNames[sub]}* invitada por *${family}* no podrá acompañarlos en la celebración de su boda el *20 de Diciembre de 2025*.\n\n` +
+                 `Con mucho cariño, les deseamos lo mejor en este día tan especial y una vida llena de amor y felicidad.`;
+    } else {
+      message += `Con mucha alegría, La *${familyNames[sub]}* de la Novia(o) *${family}* confirma la asistencia de *${tickets} personas* a la boda el *20 de Diciembre de 2025*.\n\n` +
+                 `*Dress Code:* Semi-Formal\n\n` +
+                 `*Importante:* No se aceptan niños.\n\n` +
+                 `¡Nos vemos pronto!`;
+    }
+
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+
+    // Cerrar el modal después de confirmar
+    const modalElement = document.getElementById("confirmModal");
+    const modalInstance = bootstrap.Modal.getInstance(modalElement);
+    modalInstance.hide();
+  });
 
 
 
