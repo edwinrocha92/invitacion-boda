@@ -180,28 +180,102 @@ subfamilySelect.addEventListener('change', () => {
 
 
 
-const overlay = document.getElementById('inviteOverlay');
-const enterBtn = document.getElementById('enterBtn');
-const audio = document.getElementById('bg-music');
-const START_AT = 5;
-// Bloquear scroll al cargar
-document.body.classList.add("modal-open");
-enterBtn.addEventListener('click', () => {
-  // Eliminar overlay completamente
-  overlay.remove();
-  document.body.classList.remove("modal-open");
+// const overlay = document.getElementById('inviteOverlay');
+// const enterBtn = document.getElementById('enterBtn');
+// const audio = document.getElementById('bg-music');
+// const START_AT = 5;
+// // Bloquear scroll al cargar
+// document.body.classList.add("modal-open");
+// if (!overlay || !enterBtn) return;
 
-  // Reproducir música en segundo plano
-  if (audio) {
-    setTimeout(() => {
-      try {
-        audio.currentTime = START_AT;
-        audio.play().catch(() => {
-          console.warn('El audio requiere interacción del usuario.');
+// enterBtn.addEventListener('click', () => {
+//   // Evitar doble clicks
+//   if (overlay.classList.contains('fade-out')) return;
+
+//   document.body.classList.remove("modal-open");
+//   // Remover del DOM cuando termine la transición
+//   overlay.addEventListener("transitionend", () => {
+//     overlay.remove();
+//   });
+
+//   // Reproducir música en segundo plano
+//   if (audio) {
+//     setTimeout(() => {
+//       try {
+//         audio.currentTime = START_AT;
+//         audio.play().catch(() => {
+//           console.warn('El audio requiere interacción del usuario.');
+//         });
+//       } catch (e) {
+//         console.warn(e);
+//       }
+//     }, 200);
+//   }
+// });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const overlay = document.getElementById('inviteOverlay');
+  const enterBtn = document.getElementById('enterBtn');
+  const audio = document.getElementById('bg-music');
+  const START_AT = 6;
+
+  // Asegurar bloqueo de scroll al inicio
+  document.body.classList.add('modal-open');
+
+  // Si por alguna razón el overlay no existe, evitamos errores
+  if (!overlay || !enterBtn) return;
+
+  enterBtn.addEventListener('click', (ev) => {
+    // Evitar doble clicks
+    if (overlay.classList.contains('fade-out')) return;
+
+    // 1) Intentar reproducir audio dentro de la interacción (necesario para móviles)
+    try {
+      // fijar tiempo antes de play (si el navegador lo permite)
+      if (audio) {
+        // si el audio está cargado, setear el tiempo; si no, lo intentamos aunque falle
+        try { audio.currentTime = START_AT; } catch (e) { /* ignore */ }
+        // Llamada a play (no await) para no bloquear el hilo principal
+        audio.play().catch(err => {
+          // Si falla, lo registramos pero no interrumpe la UX
+          console.warn('No se pudo iniciar audio automáticamente:', err);
         });
-      } catch (e) {
-        console.warn(e);
       }
-    }, 200);
-  }
+    } catch (err) {
+      console.warn('Error al intentar reproducir audio:', err);
+    }
+
+    // 2) Activar clase de fade-out
+    overlay.classList.add('fade-out');
+
+    // 3) Usar transitionend para remover el overlay definitivamente y restaurar scroll
+    const onTransitionEnd = (e) => {
+      // Solo reaccionamos al cambio de opacidad en el propio overlay
+      if (e.target === overlay && e.propertyName === 'opacity') {
+        cleanup();
+      }
+    };
+
+    // Si transitionend no se dispara (por algún motivo), fallback timeout
+    let fallbackTimer = setTimeout(() => {
+      cleanup();
+    }, 900); // ligeramente mayor que la transición (0.6s) por seguridad
+
+    function cleanup() {
+      // Remover listener y timer (si existe)
+      overlay.removeEventListener('transitionend', onTransitionEnd);
+      clearTimeout(fallbackTimer);
+
+      // Removemos el elemento del DOM para evitar cualquier "fantasma"
+      if (overlay.parentNode) {
+        overlay.parentNode.removeChild(overlay);
+      }
+
+      // Restaurar scroll
+      document.body.classList.remove('modal-open');
+    }
+
+    overlay.addEventListener('transitionend', onTransitionEnd, { once: true });
+  });
 });

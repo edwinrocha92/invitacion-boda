@@ -336,20 +336,20 @@ footer {
   align-items: center;
   justify-content: center;
   opacity: 1;
-  transition: opacity 5s ease;
+  transition: opacity 1s ease;
   overflow: hidden;
+}
+
+
+#inviteOverlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Cuando el overlay está activo */
 body.modal-open {
   overflow: hidden;
 }
-
-#inviteOverlay.hide {
-  opacity: 0;
-  pointer-events: none;
-}
-
 
 .invite-card {
   background-color: #fffef9;
