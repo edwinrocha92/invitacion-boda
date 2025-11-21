@@ -180,7 +180,7 @@ subfamilySelect.addEventListener('change', () => {
                  `Con mucho cariño, les deseamos lo mejor en este día tan especial y una vida llena de amor y felicidad.`;
     } else {
       message += `Con mucha alegría, La *${familyNames[sub]}* de la Novia(o) *${family}* confirma la asistencia de *${tickets} personas* a la boda el *20 de Diciembre de 2025*.\n\n` +
-                 `*Dress Code:* Semi-Formal\n\n` +
+                 `*Dress Code:* Semi-Formal (Se recomienda llevar abrigo debido a la temporada invernal, para mayor comodidad)\n\n` +
                  `*Importante:* No se aceptan niños.\n\n` +
                  `¡Nos vemos pronto!`;
     }
