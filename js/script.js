@@ -34,7 +34,7 @@ setInterval(updateCountdown, 1000);
 
 
     const families = {
-      Issela: { Familia_Rocha_Quezada: 5, Familia_Gonzalez_Quezada: 2, Familia_Hernandez_Quezada: 3, Familia_Rosales_Quezada: 6, Familia_Rios_Quezada: 4, Familia_Rocha_Nader: 2, Familia_Guerrero_Lopez: 4, Familia_Molina_Franco:2, Familia_Hernandez_Melendrez:2, Familia_Crissanto_Hernandez:2, Familia_Gonzalez_Gonzalez:2, Familia_Appleberry:2, Familia_Ayala:2, Fernanda_Gonzalez_Novia: 1},
+      Issela: { Familia_Rocha_Quezada: 5, Familia_Gonzalez_Quezada: 2, Familia_Hernandez_Quezada: 3, Familia_Rosales_Quezada: 6, Familia_Rios_Quezada: 4, Familia_Rocha_Nader: 2, Familia_Guerrero_Lopez: 4, Familia_Molina_Franco:2, Familia_Hernandez_Melendrez:2, Familia_Crissanto_Hernandez:2, Familia_Gonzalez_Gonzalez:2, Familia_Appleberry:2, Familia_Ayala:2, Fernanda_Gonzalez_Novia: 1, Familia_Amada: 4},
       Carlos: { Familia_Avitia_Hernandez: 5, Familia_Perales_Avitia: 3,Familia_Rodriguez_Hernandez:2,Familia_Herrera_Hernandez:2, Familia_Hernandez_Cabrales:3, Familia_Esquivel_Hernandez:2, Familia_Hernandez_De_La_Hoya:2, Familia_Hernandez_Silerio:2,Familia_Hernandez_Arambula:5, Fam_Mata_Hernandez:2, Fam_Espinoza_Hernandez:6, Familia_Felix:3, Familia_Torres_Hernandez:3}
     };
 
@@ -55,6 +55,7 @@ setInterval(updateCountdown, 1000);
       Familia_Appleberry: "Familia Appleberry",
       Familia_Ayala: "Martin Ayala & Familia",
       Fernanda_Gonzalez_Novia: "Fernanda Gonzalez",
+      Familia_Amada: "Amada Leticia Estrada & Familia",
       //FAMILIA DE CARLOS
       Familia_Avitia_Hernandez: "Familia Avitia Hernández",
       Familia_Perales_Avitia: "Familia Perales Avitia",
@@ -180,7 +181,7 @@ subfamilySelect.addEventListener('change', () => {
                  `Con mucho cariño, les deseamos lo mejor en este día tan especial y una vida llena de amor y felicidad.`;
     } else {
       message += `Con mucha alegría, La *${familyNames[sub]}* de la Novia(o) *${family}* confirma la asistencia de *${tickets} personas* a la boda el *20 de Diciembre de 2025*.\n\n` +
-                 `*Dress Code:* Semi-Formal (Se recomienda llevar abrigo debido a la temporada invernal, para mayor comodidad)\n\n` +
+                 `*Dress Code:* Semi-Formal (Se recomienda llevar abrigo o saco debido a la temporada invernal, para mayor comodidad\n\n` +
                  `*Importante:* No se aceptan niños.\n\n` +
                  `¡Nos vemos pronto!`;
     }
